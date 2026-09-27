@@ -1,9 +1,20 @@
 # ComfyUI-H3-FinalClipAutoFit
 
-完成映像をPadせず、最終ClipのH3生成尺だけを延長して楽曲終端をカバーするノードです。
+A custom node that extends only the MiniMax H3 generation duration of the final active clip to cover the end of the song, without padding the completed video.
 
-- FPS: 24固定
-- Motion Context trim: 22 frames固定
-- Clip1とClip2以降の既存ワークフローのフレーム計算式をそのまま再現
-- `enable_final_fit = true` のときだけ、使用中の最後のClip Durationを必要最小限のH3有効尺へ延長
-- IMAGE / LATENT / RTX VSR経路には触れません
+- Fixed FPS: **24**
+- Fixed Motion Context trim: **22 frames**
+- Reproduces the existing workflow's frame calculation for Clip 1 and Clip 2+
+- Only when `enable_final_fit = true`, the duration of the last active clip is extended to the minimum valid H3 duration required
+- Does not modify the IMAGE / LATENT / RTX VSR paths
+
+## Installation
+
+Clone this repository into `ComfyUI/custom_nodes/`:
+
+```bash
+cd ComfyUI/custom_nodes
+git clone https://github.com/fukkun2705-commits/ComfyUI-H3-FinalClipAutoFit.git
+```
+
+Restart ComfyUI after installation.
